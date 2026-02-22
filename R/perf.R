@@ -1,5 +1,12 @@
 
 
+#' Progress Widget
+#'
+#' @returns an HTML widget
+#' @export
+#'
+#' @examples perf()
+
 perf <- function(){
 
   div(style = "width: 300px;height: 300px;margin: 20px;",
