@@ -1,5 +1,5 @@
 
-This repository contains things I want to reuse in the future kwidget R package.
+This repository contains things I want to reuse.
 
-- CSS Theme
 - widget functions to return html
+- javascript functions to update the widgets
