@@ -7,43 +7,75 @@
 #'
 #' @examples gauge()
 
-gauge <- function(){
+gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
 
-  div(style = "width: 300px;height: 300px;margin: 20px;",
+  # -- check arguments
+  if(!is.null(options))
+    stopifnot("options must be a list" = is.list(options))
 
-      tags$svg(id="dummy",
-               viewBox="0 0 100 100",
+  # -- defaults
+  # Should be wrapped in some function that use can call to get the defaults
+  # defaults("gauge")
+  defaults <- list(color = "#000",
+                   width = 4,
+                   duration = "1.5s",
+                   bg = TRUE,
+                   bg_color = "#AAA",
+                   bg_width = 1)
 
-               tags$circle(fill="none",
-                           stroke="#aaa",
-                           'stroke-width'="1",
-                           'stroke-mitterlimit'="0",
-                           cx="50",
-                           cy="50",
-                           r="48",
-                           'stroke-dasharray'="310"),
+  # -- complete
+  # Should be wrapped into a function (maybe ktools)
+  options <- c(options, defaults[!names(defaults) %in% names(options)])
 
-               tags$circle(id = "progress",
-                           fill="none",
-                           stroke="#000",
-                           'stroke-width'="4",
-                           'stroke-mitterlimit'="0",
-                           cx="50",
-                           cy="50",
-                           r="48",
-                           'stroke-dasharray'="301.5929",
-                           'stroke-linecap'="round",
-                           transform="rotate(-90 ) translate(-100 0)",
+  # -- init
+  radius <- 48
+  cx <- 50
+  cy <- 50
 
-                           tags$animate(id="target",
-                                        attributeName="stroke-dashoffset",
-                                        from="301.5929",
-                                        to="75",
-                                        dur="1.5s",
-                                        keySplines="0.1 0.8 0.2 1;",
-                                        keyTimes="0;1",
-                                        calcMode="spline",
-                                        repeatCount="1",
-                                        fill="freeze"))))
+  # -- compute stroke length
+  perimeter <- 2 * pi * radius
+  progress <- perimeter * (100 - value) / 100
+
+  # -- define the widget
+  widget <- tags$svg(id = id,
+               viewBox = "0 0 100 100",
+
+               # -- background circle
+               if(options$bg)
+                 tags$circle(fill = "none",
+                             stroke = options$bg_color,
+                             'stroke-width' = options$bg_width,
+                             cx = cx,
+                             cy = cy,
+                             r = radius,
+                             'stroke-dasharray' = perimeter),
+
+               # -- progress circle
+               tags$circle(id = paste(id, "progress", sep = "-"),
+                           fill = "none",
+                           stroke = options$color,
+                           'stroke-width' = options$width,
+                           cx = cx,
+                           cy = cy,
+                           r = radius,
+                           'stroke-dasharray' = perimeter,
+                           'stroke-linecap' = "round",
+                           transform = "rotate(-90 ) translate(-100 0)",
+
+                           # -- progress animation
+                           tags$animate(id = paste(id, "animate", sep = "-"),
+                                        attributeName = "stroke-dashoffset",
+                                        from = perimeter,
+                                        to = progress,
+                                        dur = options$duration,
+                                        keySplines = "0.1 0.8 0.2 1;",
+                                        calcMode = "spline",
+                                        fill = "freeze")))
+
+  # -- return
+  if(wrap)
+    div(style = "width: 300px;height: 300px;margin: 20px;", widget)
+  else
+    widget
 
 }
