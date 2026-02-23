@@ -9,12 +9,12 @@
 
 perf <- function(){
 
-  div(style = "width: 300px;height: 300px;margin: 20px;",
+  htmltools::div(style = "width: 300px;height: 300px;margin: 20px;",
 
-      tags$svg(id="progress",
+      htmltools::tags$svg(id="progress",
                viewBox="0 0 100 100",
 
-               tags$line(x1="40",
+               htmltools::tags$line(x1="40",
                          x2="40",
                          y1="45",
                          y2="55",
@@ -23,25 +23,25 @@ perf <- function(){
                          'stroke-dasharray'="4",
                          opacity="0.5"),
 
-               tags$text(x="40",
+               htmltools::tags$text(x="40",
                          y="60",
                          'text-anchor'="middle",
                          'font-size'="5px",
                          "reference"),
 
-               tags$g(fill="none",
+               htmltools::tags$g(fill="none",
                       'stroke-width'="4",
                       'stroke-linecap'="round",
                       'stroke-linejoin'="round",
                       transform="translate(5 5) scale(0.9 0.9)",
 
-                      tags$path(stroke="hsl(0, 0%, 0%)",
+                      htmltools::tags$path(stroke="hsl(0, 0%, 0%)",
                                 opacity="0.5",
                                 d="M 0 50 100 50"),
 
-                      tags$path(stroke="black",
+                      htmltools::tags$path(stroke="black",
                                 d="M 0 50 0 50",
-                                tags$animate(
+                                htmltools::tags$animate(
                                   id="foo",
                                   attributeName="d",
                                   from="M 0 50 0 50",
