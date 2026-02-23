@@ -6,6 +6,8 @@
 #'
 #' @param id a character string to specify the unique id for the widget
 #' @param wrap whether or not the widget should be wrapped into a div container
+#' @param value the progress value to display (should be between 0 and 100)
+#' @param options an optional list of parameters to tune the widget
 #'
 #' @details
 #' `id` is used to compute ids for children nodes of the svg widget, pretty much
@@ -21,7 +23,10 @@
 #' @returns an HTML widget
 #' @export
 #'
-#' @examples gauge()
+#' @examples
+#' \dontrun{
+#' gauge(id = "foo")
+#' }
 
 gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
 
@@ -53,12 +58,12 @@ gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
   progress <- perimeter * (100 - value) / 100
 
   # -- define the widget
-  widget <- tags$svg(id = id,
+  widget <- htmltools::tags$svg(id = id,
                viewBox = "0 0 100 100",
 
                # -- background circle
                if(options$bg)
-                 tags$circle(fill = "none",
+                 htmltools::tags$circle(fill = "none",
                              stroke = options$bg_color,
                              'stroke-width' = options$bg_width,
                              cx = cx,
@@ -67,7 +72,7 @@ gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
                              'stroke-dasharray' = perimeter),
 
                # -- progress label
-               tags$text(id = paste(id, "label", sep = "-"),
+               htmltools::tags$text(id = paste(id, "label", sep = "-"),
                          x = cx,
                          y = cy,
                          'text-anchor' = "middle",
@@ -76,7 +81,7 @@ gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
                          paste0(value, "%")),
 
                # -- progress circle
-               tags$circle(id = paste(id, "progress", sep = "-"),
+               htmltools::tags$circle(id = paste(id, "progress", sep = "-"),
                            fill = "none",
                            stroke = options$color,
                            'stroke-width' = options$width,
@@ -88,7 +93,7 @@ gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
                            transform = "rotate(-90 ) translate(-100 0)",
 
                            # -- progress animation
-                           tags$animate(id = paste(id, "progress-animate", sep = "-"),
+                           htmltools::tags$animate(id = paste(id, "progress-animate", sep = "-"),
                                         attributeName = "stroke-dashoffset",
                                         from = perimeter,
                                         to = progress,
@@ -99,7 +104,7 @@ gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
 
   # -- return
   if(wrap)
-    div(style = "width: 300px;height: 300px;margin: 20px;", widget)
+    htmltools::div(style = "width: 300px;height: 300px;margin: 20px;", widget)
   else
     widget
 
