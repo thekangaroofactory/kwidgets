@@ -66,6 +66,15 @@ gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
                              r = radius,
                              'stroke-dasharray' = perimeter),
 
+               # -- progress label
+               tags$text(id = paste(id, "label", sep = "-"),
+                         x = cx,
+                         y = cy,
+                         'text-anchor' = "middle",
+                         'dominant-baseline' = "middle",
+                         class = "small",
+                         paste0(value, "%")),
+
                # -- progress circle
                tags$circle(id = paste(id, "progress", sep = "-"),
                            fill = "none",
@@ -79,7 +88,7 @@ gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
                            transform = "rotate(-90 ) translate(-100 0)",
 
                            # -- progress animation
-                           tags$animate(id = paste(id, "animate", sep = "-"),
+                           tags$animate(id = paste(id, "progress-animate", sep = "-"),
                                         attributeName = "stroke-dashoffset",
                                         from = perimeter,
                                         to = progress,
