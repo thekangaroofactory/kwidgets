@@ -18,4 +18,4 @@ URL: https://thekangaroofactory.github.io/kwidgets/
 Suggests: 
     knitr,
     rmarkdown
-VignetteBuilder: knitr
+VignetteBuilder: quarto
