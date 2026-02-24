@@ -14,3 +14,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports:
   htmltools
+URL: https://thekangaroofactory.github.io/kwidgets/
