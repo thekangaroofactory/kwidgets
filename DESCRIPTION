@@ -17,5 +17,6 @@ Imports:
 URL: https://thekangaroofactory.github.io/kwidgets/
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    quarto
 VignetteBuilder: quarto

@@ -2,11 +2,16 @@
 title: "Getting Started"
 format: html
 editor: visual
+
+vignette: >
+  %\VignetteIndexEntry{Administration}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
 ---
 
 This is where we will explain where / how to start with the package.
 
-``` R
+``` r
 library(kwidgets)
 
 gauge(id = "test")
