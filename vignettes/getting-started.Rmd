@@ -17,3 +17,5 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(kwidgets)
 ```
+
+This is where we will explain where / how to start with the package.
