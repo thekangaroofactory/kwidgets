@@ -5,3 +5,11 @@ editor: visual
 ---
 
 This is where we will explain where / how to start with the package.
+
+``` R
+library(kwidgets)
+
+gauge(id = "test")
+```
+
+Try it
