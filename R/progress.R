@@ -28,7 +28,7 @@ progress <- function(id, value = 0, options = NULL, wrap = TRUE){
 
 
   # -- define the widget
-  htmltools::tags$svg(
+  widget <- htmltools::tags$svg(
     id = paste(id, "progress", sep = "-"),
     viewBox = "0 0 100 100",
 
@@ -75,7 +75,7 @@ progress <- function(id, value = 0, options = NULL, wrap = TRUE){
           id = paste(id, "progress-animate", sep = "-"),
           attributeName = "d",
           from = "M 0 50 0 50",
-          to = "M 0 50 75 50",
+          to = "M 0 50 0 50",
           dur = options$duration,
           keySplines = "0.1 0.8 0.2 1;",
           calcMode = "spline",
