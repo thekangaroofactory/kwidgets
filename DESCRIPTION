@@ -15,3 +15,7 @@ RoxygenNote: 7.3.2
 Imports:
   htmltools
 URL: https://thekangaroofactory.github.io/kwidgets/
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
