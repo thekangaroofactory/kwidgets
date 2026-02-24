@@ -2,4 +2,5 @@
 
 ### All vignettes
 
-- [getting-started](https://thekangaroofactory.github.io/kwidgets/articles/getting-started.md):
+- [Getting
+  Started](https://thekangaroofactory.github.io/kwidgets/articles/getting-started.md):
