@@ -4,5 +4,5 @@
 
 - [`gauge()`](https://thekangaroofactory.github.io/kwidgets/reference/gauge.md)
   : Gauge Widget
-- [`perf()`](https://thekangaroofactory.github.io/kwidgets/reference/perf.md)
+- [`progress()`](https://thekangaroofactory.github.io/kwidgets/reference/progress.md)
   : Progress Widget
