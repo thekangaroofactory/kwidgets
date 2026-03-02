@@ -8,4 +8,4 @@ library(kwidgets)
 gauge(id = "test")
 ```
 
-Try it
+Link to interactive lab on tkf.com
