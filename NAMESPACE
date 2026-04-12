@@ -3,3 +3,4 @@
 export(gauge)
 export(gauge_update)
 export(progress)
+export(progress_update)
