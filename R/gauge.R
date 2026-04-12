@@ -34,6 +34,12 @@ gauge <- function(id, value = 0, options = NULL, wrap = TRUE){
   if(!is.null(options))
     stopifnot("options must be a list" = is.list(options))
 
+  # -- insert javascript dependency
+  # for when it's called from server side
+  ktools::with_js(package = "kwidgets",
+                  src = "assets",
+                  script = "js/gauge.js")
+
   # -- defaults
   # Should be wrapped in some function that use can call to get the defaults
   # defaults("gauge")
