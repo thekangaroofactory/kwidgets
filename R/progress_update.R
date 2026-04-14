@@ -9,6 +9,7 @@
 #' @param value the new progress value to display
 #' @param session the session of object of the server function
 #'
+#' @importFrom ktools with_js
 #' @export
 #'
 #' @examples

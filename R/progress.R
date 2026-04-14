@@ -7,6 +7,7 @@
 #' @param wrap whether or not the widget should be wrapped into a div container
 #'
 #' @returns an HTML widget
+#' @importFrom ktools with_js
 #' @export
 #'
 #' @examples

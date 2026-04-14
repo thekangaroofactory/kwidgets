@@ -21,6 +21,7 @@
 #' the widget in your own div.
 #'
 #' @returns an HTML widget
+#' @importFrom ktools with_js
 #' @export
 #'
 #' @examples

@@ -1,4 +1,6 @@
 
+# kwidgets
+
 This package wraps a set of SVG/HTML widgets.
 The goal behind using SVG is to allow update with css animation while the widget itself won't be rendered again (vs shiny::renderUI()).
 
@@ -21,8 +23,6 @@ Prototype for targeted monitoring of user actions in R Shiny apps.
 The development version can be installed from GitHub with:
 
 ``` r
-
 # install.packages("devtools")
 devtools::install_github("thekangaroofactory/kwidgets")
-
 ```
