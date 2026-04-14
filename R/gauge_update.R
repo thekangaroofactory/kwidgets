@@ -6,6 +6,7 @@
 #' Check if the required dependency needs to be inserted on UI side
 #' and update the gauge widget.
 #'
+#' @param id the widget to update
 #' @param value the new progress value to display
 #' @param session the session of object of the server function
 #'
@@ -16,7 +17,7 @@
 #' gauge_update(value = 52)
 #' }
 
-gauge_update <- function(value, session = shiny::getDefaultReactiveDomain()){
+gauge_update <- function(id, value, session = shiny::getDefaultReactiveDomain()){
 
   # -- insert javascript dependency
   ktools::with_js(package = "kwidgets",
@@ -28,7 +29,8 @@ gauge_update <- function(value, session = shiny::getDefaultReactiveDomain()){
 
   # -- call update
   session$sendCustomMessage("gauge_update",
-                            list(progress = arc_value,
+                            list(id = id,
+                                 progress = arc_value,
                                  label = paste0(value, "%")))
 
 }
