@@ -4,9 +4,11 @@
 \alias{progress_update}
 \title{Update Progress Widget}
 \usage{
-progress_update(value, session = shiny::getDefaultReactiveDomain())
+progress_update(id, value, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
+\item{id}{the widget to update}
+
 \item{value}{the new progress value to display}
 
 \item{session}{the session of object of the server function}

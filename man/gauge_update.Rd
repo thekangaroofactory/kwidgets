@@ -4,9 +4,11 @@
 \alias{gauge_update}
 \title{Update Gauge Widget}
 \usage{
-gauge_update(value, session = shiny::getDefaultReactiveDomain())
+gauge_update(id, value, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
+\item{id}{the widget to update}
+
 \item{value}{the new progress value to display}
 
 \item{session}{the session of object of the server function}
