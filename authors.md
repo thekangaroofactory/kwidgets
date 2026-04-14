@@ -8,12 +8,12 @@
 ## Citation
 
 Peret P (2026). *kwidgets: HTML Widgets for R Shiny*. R package version
-0.0.0.9000, <https://thekangaroofactory.github.io/kwidgets/>.
+0.9.1, <https://thekangaroofactory.github.io/kwidgets/>.
 
     @Manual{,
       title = {kwidgets: HTML Widgets for R Shiny},
       author = {Philippe Peret},
       year = {2026},
-      note = {R package version 0.0.0.9000},
+      note = {R package version 0.9.1},
       url = {https://thekangaroofactory.github.io/kwidgets/},
     }
