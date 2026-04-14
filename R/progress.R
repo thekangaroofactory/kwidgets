@@ -20,12 +20,17 @@ progress <- function(id, value = 0, options = NULL, wrap = TRUE){
   if(!is.null(options))
     stopifnot("options must be a list" = is.list(options))
 
+  # -- insert javascript dependency
+  # for when it's called from server side
+  ktools::with_js(package = "kwidgets",
+                  src = "assets",
+                  script = "js/progress.js")
 
+  # -- init
   options <- list(width = 4,
                   color = "#000",
                   duration= "1.5s",
                   reference = 40)
-
 
   # -- define the widget
   widget <- htmltools::tags$svg(
