@@ -22,8 +22,6 @@ ui <- page_fluid(
 # Define server
 server <- function(input, output, session) {
 
-  old_value <- reactiveVal(180)
-
   observeEvent(input$click, {
 
     # -- generate random value
