@@ -1,0 +1,35 @@
+---
+title: "kwidgets"
+format: html
+editor: visual
+
+vignette: >
+  %\VignetteIndexEntry{Administration}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+The package is meant to be very straightforward to use.\
+Although it requires some JavaScript dependency to update the widgets, user won't need to to do anything to include them on client side.
+
+## Create widget
+
+``` r
+library(kwidgets)
+
+gauge(id = "test")
+```
+
+## Update widget
+
+``` r
+# library(kwidgets)
+
+gauge_update(id = "test", value = 52)
+```
+
+## Let the magic happen!
+
+Whenever they are called on UI side, the widget functions will just return an HTML component to be inserted in your layout.
+
+But when called from server side, or when calling the corresponding \*\_update function, it will manage to insert the JavaScript dependency in the HTML tree on client side. This action will be remembered (on server side), so that it will be performed just once even if you use multiple widgets of the same type or call the \*update function several times.
