@@ -1,3 +1,5 @@
+# kwidgets
+
 This package wraps a set of SVG/HTML widgets. The goal behind using SVG
 is to allow update with css animation while the widget itself won’t be
 rendered again (vs shiny::renderUI()).
@@ -16,7 +18,6 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 The development version can be installed from GitHub with:
 
 ``` r
-
 # install.packages("devtools")
 devtools::install_github("thekangaroofactory/kwidgets")
 ```
